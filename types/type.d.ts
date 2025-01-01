@@ -30,3 +30,23 @@ declare interface TabIconProps {
   focused: boolean;
   source: ImageSourcePropType;
 }
+
+declare interface RideProps {
+  origin_address: string;
+  destination_address: string;
+  origin_latitude: number | string;
+  origin_longitude: number | string;
+  destination_latitude: number | string;
+  destination_longitude: number | string;
+  ride_time: number;
+  fare_price: number | string;
+  payment_status: string;
+  driver_id: number;
+  user_id: string;
+  created_at: string;
+  driver: {
+    first_name: string;
+    last_name: string;
+    car_seats: number;
+  };
+}
