@@ -1,4 +1,4 @@
-import { TouchableOpacityProps } from "react-native";
+import { ImageSourcePropType, TouchableOpacityProps } from "react-native";
 
 declare interface ButtonProps extends TouchableOpacityProps {
   title: string;
@@ -13,6 +13,7 @@ declare interface InputFieldProps extends TextInputProps {
   className?: string;
   label: string;
   icon?: any;
+  value?: string;
   secureTextEntry?: boolean;
   labelStyle?: string;
   containerStyle?: string;
@@ -21,4 +22,11 @@ declare interface InputFieldProps extends TextInputProps {
   placeholder?: string;
   placeholderTextColor?: string;
   textContentType?: TextInputProps["textContentType"];
+  keyboardType?: TextInputProps["keyboardType"];
+  onChangeText?: (value: string) => void;
+}
+
+declare interface TabIconProps {
+  focused: boolean;
+  source: ImageSourcePropType;
 }

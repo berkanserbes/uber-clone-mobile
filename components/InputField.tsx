@@ -6,12 +6,17 @@ import {
   Text,
   Image,
   Platform,
+  Keyboard,
 } from "react-native";
+
 import { InputFieldProps } from "@/types/type";
+
 const InputField: React.FC<InputFieldProps> = ({
   label,
   icon,
+  value,
   placeholder = "",
+  onChangeText,
   secureTextEntry = false,
   labelStyle,
   containerStyle,
@@ -20,13 +25,14 @@ const InputField: React.FC<InputFieldProps> = ({
   placeholderTextColor = "#858585",
   className,
   textContentType,
+  keyboardType,
   ...props
 }) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View className="my-2 w-full">
           <Text className={`text-lg font-JakartaSemiBold mb-3 ${labelStyle}`}>
             {label}
@@ -43,6 +49,9 @@ const InputField: React.FC<InputFieldProps> = ({
               placeholder={placeholder}
               placeholderTextColor={placeholderTextColor}
               textContentType={textContentType}
+              value={value}
+              onChangeText={onChangeText}
+              keyboardType={keyboardType}
               {...props}
             />
           </View>
